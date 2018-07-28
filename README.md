@@ -12,8 +12,13 @@ The aim of designing a choice mechanism is, as in much of mechanism design, to m
 
 ## Performance Guarantees
 
-I use performance guarantee $P$ to describe any of a number of desirable property that $C$ should have. $P$ is how we formalize social welfare in this context - it is defined such that a mechanism that satisfies $P$ will provide high social welfare.
+I use performance guarantee $G$ to describe any of a number of desirable property that $C$ should have. $G$ is how we formalize social welfare in this context - it is defined such that a mechanism that satisfies $G$ will provide high social welfare.
 
 Our first example of $P$ is derived from the example of debating. The mechanism described in that instance has the desirable property that any topic which is ranked 3 by even one team will not be debated. In other words, teams are guaranteed not to debate their least-preferred topic.
 
-Thus, 
+This property leads us to our first desired $G$:
+* $G(m, k)$ is fulfilled if every result of $C$ is among the mth least-preferred option for at most k people.
+
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTE4NjQzNTY5N119
+-->
