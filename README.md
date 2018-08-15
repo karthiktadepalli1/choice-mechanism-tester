@@ -1,8 +1,10 @@
 ## Voting
-Many voting mechanisms require voters to provide a ranking of their preferences. Social choice theory focuses on which of these mechanisms can yield the best outcomes. Here I use computational methods to explore some voting mechanisms and some definitions of "best outcomes" to see whether a particular voting mechanism robustly provides a given "best outcome". 
+Many voting mechanisms require voters to provide a ranking of their preferences. Social choice theory focuses on which of these mechanisms can yield the best outcomes. Here I use computational methods to explore some voting mechanisms and some definitions of "best outcomes" to see whether a particular voting mechanism robustly provides a given "best outcome".
+
+I implement various voting mechanisms that take in relevant parameters (eg. number of voters) in mechs.py. Each one is described by a docstring. I also implement various tests that take in mechanisms and determine whether they meet important criteria, in checker.py. Finally, main.py allows the user to sandbox and test different mechanisms on different criteria, using different parameters.
 
 ### Performance guarantees
-Let's define the outcomes we want any voting mechanism to have as *performance guarantees*. We want to test the robustness of such performance guarantees to changes in a) the number of voters, b) the number of candidates. 
+Let's define the outcomes we want any voting mechanism to have as *performance guarantees*. We want to test the robustness of such performance guarantees to changes in a) the number of voters, b) the number of candidates.
 
 **Performance guarantee 1 (G1):** For n voters and m candidates, the winning candidate should be ranked k or worse by no more than j candidates.
 
