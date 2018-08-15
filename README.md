@@ -10,12 +10,12 @@ Intuitively, this is the idea of the *least disliked candidate* being preferred.
 
 My social choice tester implements G1 as check_g1() in the checker.py file.
 
-**Performance guarantee 2 (G2):** the winning candidate under a voting mechanism should win every head-to-head comparison between them and another candidate under the same voting mechanism. (The Condorcet criterion)
+**Performance guarantee 2 (G2):** the winning candidate under a voting mechanism should win every head-to-head comparison between them and another candidate under the same voting mechanism. (The Condorcet Criterion)
 
 
 
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcyNjc0Mzk5Nl19
+eyJoaXN0b3J5IjpbLTE1ODM2ODIxNDgsMTcyNjc0Mzk5Nl19
 -->
