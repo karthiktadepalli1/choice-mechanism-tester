@@ -1,3 +1,3 @@
-from checks import checkPerformance
+from checker import *
 
-checkPerformance(4, 3, 2, 10000)
+loopChecker(10000, g1_checker, InverseRankSumMax, 4, 3, 2, 3)

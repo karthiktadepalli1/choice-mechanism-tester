@@ -2,12 +2,15 @@ import numpy as np
 from mechs import *
 
 
-def check_g1(mech, numVoters, numCandidates, maxVetos, vetoThreshold):
+def g1_checker(mech, numVoters, numCandidates, maxVetos, vetoThreshold):
     """
-    implements the allocation A and returns True if A has a performance guarantee. Helper function for checkPerformance().
-    @param numVoters - the number of parties with rank preferences on all the items
-    @param numCandidates - total number of items from which A chooses one
-    @param guaranteeThreshold - n such that A has performance guarantee iff the optimal choice was the lowest ranked preference of fewer than n people
+    Checks if the given mechanism fulfills the "least disliked" guarantee
+    Formally expressed as G1 in README.md
+    @param mech - the voting mechanism being tested
+    @param numVoters - the number of voters
+    @param numCandidates - the number of candidates
+    @param maxVetos - maximum acceptable vetos for a winning candidate
+    @param vetoThreshold - the highest rank that constitutes a veto
     """
     rankVectors = []
     # each element will be a randomly generated list of rank preferences
@@ -27,14 +30,22 @@ def check_g1(mech, numVoters, numCandidates, maxVetos, vetoThreshold):
     return(guarantee)
 
 
-def loopChecker(numReps, guarantee, **args):
+def g2_checker(mech, numVoters, numCandidates):
+    """
+    Checks if the given mechanism satisfies the Condorcet criterion, i.e the
+    winner of the election is also the winner of every two-person election
+    between that candidate and any other candidate.
+    """
+
+
+def loopChecker(numReps, g_checker, *args):
     """
     Conducts a vote repeatedly to check all possible distributions
     Uses results to check if the mech satisfies the performance guarantee
     """
     successFlag = True
     for i in range(numReps):
-        if not guarantee(**args):
+        if not g_checker(*args):
             successFlag = False
             break
     print(successFlag)

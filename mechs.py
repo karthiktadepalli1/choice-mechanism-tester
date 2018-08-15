@@ -57,9 +57,9 @@ def FewestVetos(rankVectors, vetoThreshold):
     """
     rankDistribs = createDistributions(rankVectors)
     vetoCounters = []
+    vetoThreshold -= 1  # to account for indexing
     for distribution in rankDistribs:
-        vetos = [i for i in distribution if i >= vetoThreshold - 1]
-        # we subtract 1 to account for indexing
+        vetos = [i for i in distribution if i >= vetoThreshold]
         vetoCounters.append(len(vetos))
 
     minim = min(vetoCounters)
@@ -76,4 +76,21 @@ def FewestVetos(rankVectors, vetoThreshold):
         rightIndex = indices[sums.index(min(sums))]
 
     optimal = rankDistribs[rightIndex]
+    return(optimal)
+
+
+def InverseRankSumMax(rankVectors):
+    """
+    Mechanism: Convert rank sums to an inverse scale and maximize.
+    The difference from RankSumMin is, higher ranks are weighted more heavily
+    and lower ranks are discounted more heavily, eg. rank 1 (1 point) counts
+    twice as much as rank 2 (0.5 points).
+    @param rankVectors - the list of rank vectors of each voter.
+    """
+    for vector in rankVectors:
+        vector = [-1/(float(x+1)) for x in vector]
+        # x+1 to account for indexing, -ve sign to use RankSumMin to maximize,
+        # even though the method actually minimizes based on its input.
+
+    optimal = RankSumMin(rankVectors)
     return(optimal)
